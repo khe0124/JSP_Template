@@ -1,0 +1,202 @@
+@charset "UTF-8";
+
+body {
+	font-family: "Noto Sans KR", sans-serif;
+	font-size: 18px;
+	font-weigt: 300;
+	line-height: 1.8;
+	color: #444;
+}
+
+a {
+	color: #444;
+}
+
+strong {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+.table {
+	width: 60vw;
+	display: table;
+	margin: 0 auto;
+}
+
+@media only all and (min-width:768px) and (max-width:1024px) {
+			.table {
+			width: 80vw;
+			display: table;
+			margin: 0 auto;
+		}
+
+}
+
+
+th {
+	font-weight: bold;
+}
+
+th.readTitle {
+	font-size: 20px;
+}
+
+td, th {
+	text-align: center;	
+}
+
+td.sub_title {
+	text-align: left;
+	padding-left: 40px;
+}
+
+
+tr {
+	cursor: pointer;
+}
+
+tr:hover {
+	background: #eaeff5;
+}
+
+.table>tbody>tr>td.contentRead {
+	padding: 100px 0;
+}
+
+
+#logo a {
+	width: 280px; /* larger than actual image? */
+	height: 120px;
+	text-decoration: none;
+	border: 0;
+}
+
+#logo img {
+	width: 180px;
+}
+
+.hideTxt {
+	overflow: hidden;
+	color: transparent;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+h2 {
+	font-size: 2.7em;
+	font-family: 'Sedgwick Ave', cursive;
+}
+
+h3 {
+	font-size: 2em;
+	font-family: 'Sedgwick Ave', cursive;
+}
+
+h2.Sedgwick {
+	font-size: 4em;
+}
+
+h4 {
+	font-size: 2em;
+}
+
+/* p {
+	font-size: 18px;
+} */
+
+.margin {
+	margin-bottom: 45px;
+}
+
+.bg-1 {
+	background-color: #1a6cbc; /* Green */
+	color: #ffffff;
+}
+
+.bg-2 {
+	background-color: #ffffff; /* Dark Blue */
+	color: #252629;
+}
+
+.character {
+	margin: auto;
+	height: 400px;
+}
+
+.bg-3 {
+	background-color: #eee; /* Dark Blue */
+}
+
+.bg-4 {
+	background-color: #474e5d; /* Dark Blue */
+	color: #ffffff;
+	padding: 0 !important;
+}
+.bg-5 {
+	background-color: #474e5d; /* Dark Blue */
+	color: #ffffff;
+}
+
+.container-fluid {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+
+.navbar {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border: 0;
+	border-radius: 0;
+	margin-bottom: 0;
+	font-size: 18px;
+	letter-spacing: 0.5px;
+}
+
+.navbar-nav  li a:hover {
+	color: #1a6cbc !important;
+}
+
+.navbar-right {
+	margin-top: 40px;
+}
+
+
+
+.ip_list {
+	width: 1200px;
+    margin: 0 auto;	
+}
+.ip_list>li {
+	float: left;
+    width: 380px;
+    margin-left: 20px;
+    box-sizing: border-box;
+}
+
+.info_desc>p {
+	font-size: 15px;
+}
+
+
+#background-video {
+	position: relative;
+	background: transparent;
+}
+
+.ytplayer-container {
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+
+/* footer */
+footer {
+	font-size: 0.8em;
+	font-weight: 300;
+}
+
+
+
+

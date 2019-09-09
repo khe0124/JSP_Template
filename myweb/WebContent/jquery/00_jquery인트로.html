@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<style type="text/css">
+#txt{
+	font-size: 50px;
+	width: 400px;
+	margin: 30px auto;
+	color: #424242;
+	transform: scale(1) rotate(0deg);
+}
+
+#txt.emphasis{
+	color: deeppink;
+	transform: scale(2) rotate(180deg);
+}
+
+</style>
+<title>00_jquery인트로.html</title>
+</head>
+<body>
+	<h1 id ="txt">버튼을 눌러주세요</h1>
+	<button id="btn">버튼</button>
+	
+	<input type ="image" src="">
+
+<script>
+	$(function(){
+		alert('jquery 시작!');
+	});
+	
+	$("#btn").click(function(){
+		$("#txt").text("눌렀군요!!").toggleClass("emphasis");
+	});
+	
+
+	$("#header>button").click(function(){
+		$("#txt").text("눌렀군요!!").toggleClass("emphasis");
+	});
+</script>
+
+</body>
+</html>
