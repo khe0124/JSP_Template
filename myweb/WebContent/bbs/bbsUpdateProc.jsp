@@ -31,7 +31,7 @@
 	}else{
 		out.println("<script>");
 		out.println("alert('글 수정이 성공했습니다.');");
-		out.println(" location.href='bbsList.jsp?col=" + col + "&word=" + word + "';"); //목록페이지 이동
+		out.println(" location.href='bbsList.jsp?col="+col+"&word="+word+"&nowPage="+nowPage+"';");
 		out.println("</script>");
 	}//if end	
 %>

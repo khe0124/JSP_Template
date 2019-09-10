@@ -17,6 +17,7 @@
 	onsubmit="return bbsCheck(this)">
 	<input type="hidden" name="col"  value="<%=col%>">
 	<input type="hidden" name="word"  value="<%=word%>">
+	<input type="hidden" name="nowPage"  value="<%=nowPage%>">
 	<table class="table">
 
 		<tr>

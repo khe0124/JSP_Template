@@ -21,7 +21,7 @@
 	}else {
 		out.println("<script>");
 		out.println("alert('글이 삭제되었습니다.');");
-		out.println(" location.href='bbsList.jsp?col="+col+"&word="+word+"';");
+		out.println(" location.href='bbsList.jsp?col="+col+"&word="+word+"&nowPage="+nowPage+"';");
 		out.println("</script>");
 	}
 %>

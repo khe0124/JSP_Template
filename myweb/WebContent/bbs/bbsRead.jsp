@@ -52,14 +52,14 @@
 		  </td>
 	<tr>
 		<td colspan ="2" style="text-align: left;">
-			<a href="bbsReply.jsp?bbsno=<%=dto.getBbsno()%>" class="reply btn btn-default">답변</a>
-			<a href="bbsUpdate.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>" class="modify btn btn-default">수정</a> 
-			<a href="bbsDelete.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>" class="delete btn btn-danger">삭제</a>					
+			<a href="bbsReply.jsp?bbsno=<%=dto.getBbsno()%>&nowPage=<%=nowPage%>" class="reply btn btn-default">답변</a>
+			<a href="bbsUpdate.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>&nowPage=<%=nowPage%>" class="modify btn btn-default">수정</a> 
+			<a href="bbsDelete.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>&nowPage=<%=nowPage%>" class="delete btn btn-danger">삭제</a>					
 		</td>		
 		<td colspan ="2">
 			<p style="float:right;">	
 				<a href="bbsForm.jsp"  class="btn btn-primary">글쓰기</a>
-				<a href="bbsList.jsp?col=<%=col%>&word=<%=word%>"  class="btn btn-default">글목록</a>	
+				<a href="bbsList.jsp?col=<%=col%>&word=<%=word%>&nowPage=<%=nowPage%>"  class="btn btn-default">글목록</a>	
 			</p>
 		</td>
 	</tr>

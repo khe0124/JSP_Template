@@ -15,6 +15,7 @@
 			<input type="hidden" name="bbsno"  value="<%=request.getParameter("bbsno")%>">
 			<input type="hidden" name="col"  value="<%=col%>">
 			<input type="hidden" name="word"  value="<%=word%>">
+			<input type="hidden" name="nowPage"  value="<%=nowPage%>">
 			<input type="password" name="passwd" class="form-control" required autofocus>
 			</td>
 		</tr>

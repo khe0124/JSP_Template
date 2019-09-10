@@ -10,6 +10,18 @@
 <div class = "table-div">
 <table class="table">
 	<tr id="t1">
+		<%
+		//글 갯수 세기
+		int totalRecord = dao.count(col, word);
+				
+		out.println("<tr>");
+		out.println("<td colspan='6' style='text-align:left;'>");
+		out.println("글갯수: <strong>");
+		out.println(totalRecord);
+		out.println("</strong>");
+		out.println("<tr>");		
+		%>
+	
 		<th>No.</th>
 		<th>작성자</th>
 		<th>제목</th>
@@ -17,9 +29,12 @@
 		<th>조회수</th>
 		<th>수정/삭제</th>
 	</tr>
-	<%
+	<%	
+		//한 페이지 당 출력할 글의 줄수
+		int recordPerPage = 10;
+	
 		//전체목록
-		ArrayList<BbsDTO> list = dao.list(col, word);
+		ArrayList<BbsDTO> list = dao.list(col, word, nowPage, recordPerPage);
 		if (list == null) {
 			out.println("<tr>");
 			out.println("	<td colspan='6'>결과를 찾을 수 없습니다.</td>");
@@ -47,7 +62,7 @@
 			}	
 			
 			%>
-			<a href="bbsRead.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>"><%=dto.getSubject()%>
+			<a href="bbsRead.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>&nowPage=<%=nowPage%>"><%=dto.getSubject()%>
 			<%
 			//오늘 작성한 글제목 뒤에 new 이미지 출력
 			//regdt에서 "년월일"만 자르기 -> 예)2019-09-04	
@@ -60,13 +75,13 @@
 		</td>
 		<td><%=dto.getRegdt().substring(0,10)%></td>
 		<td><%=dto.getReadcnt()%></td>		
-		<td><a href="bbsUpdate.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>"
+		<td><a href="bbsUpdate.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>&nowPage=<%=nowPage%>"
 			class="modify btn btn-default">수정</a> <a
-			href="bbsDelete.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>" class="delete btn btn-danger">삭제</a>
+			href="bbsDelete.jsp?bbsno=<%=dto.getBbsno()%>&col=<%=col%>&word=<%=word%>&nowPage=<%=nowPage%>" class="delete btn btn-danger">삭제</a>
 		</td>
 	</tr>	
 	<%
-		}//for end				
+		}//for end	
 	%>
 		<!-- 검색시작 -->
 		<tr>
@@ -96,6 +111,11 @@
 	%>
 </table>
 
+<%
+String paging = new Paging().paging4(totalRecord, nowPage, recordPerPage, col, word, "bbsList.jsp");
+out.print(paging);
+
+%>
 <br>
 </div>
 

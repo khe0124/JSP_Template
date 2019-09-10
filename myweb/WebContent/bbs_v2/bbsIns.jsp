@@ -3,10 +3,9 @@
 <%@ page import="net.bbs.*" %>
 <%@ include file="ssi.jsp" %>
 <%@ include file="../header.jsp"%>
-<!-- 본문 시작 bbsReplyProc.jsp-->
+<!-- 본문 시작 bbsIns.jsp-->
 <%
 	//1) 사용자가 입력한 정보를 변수에 담기
-	int bbsno = Integer.parseInt(request.getParameter("bbsno"));
 	String wname  =request.getParameter("wname").trim();
 	String subject=request.getParameter("subject").trim();
 	String content=request.getParameter("content").trim();
@@ -14,7 +13,6 @@
 	String ip     =request.getRemoteAddr();//요청pc의 ip
 	
 	//2) 1)의 내용을 dto객체에 담기
-	dto.setBbsno(bbsno);
 	dto.setWname(wname);
 	dto.setSubject(subject);
 	dto.setContent(content);
@@ -22,7 +20,7 @@
 	dto.setIp(ip);
 	
 	//3) 2)의 내용을 tb_bbs테이블에 추가하기
-	int cnt=dao.reply(dto);
+	int cnt=dao.insert(dto);
 	
 	//4) 글쓰기 성공 후 bbsList.jsp로 이동하기
 	if(cnt==0){
@@ -31,7 +29,7 @@
 	}else{
 		out.println("<script>");
 		out.println("	alert('글이 입력되었습니다.');");
-		out.println(" location.href='bbsList.jsp?col="+col+"&word="+word+"&nowPage="+nowPage+"';");
+		out.println("	location.href='bbsList.jsp';"); //목록페이지 이동
 		out.println("</script>");
 	}//if end	
 %>
