@@ -79,7 +79,7 @@ function searchCheck(f) {
 	return true;
 }
 
-function commentCheck(f) {
+/*function commentCheck(f) {
 	var cwname = f.cwname.value;
 	cwname = cwname.trim();
 	if(cwname == 0) {
@@ -94,5 +94,37 @@ function commentCheck(f) {
 		return false;
 	}
 	return true;
-}
+}*/
+
+/* login */
+function loginCheck(f) {
+	//로그인 유효성 검사
+	//1) 아이디 5~10글자 이내
+	var id = f.id.value;
+	if (id.length < 4) {
+		alert("아이디는 5글자 이상입니다.");
+		f.id.focus();
+		return false;
+	} else if(id.length >10) {
+		alert("아이디는 10글자 이내입니다.")
+		f.id.focus(0);
+		return false;
+	}	
+	
+	//2) 비밀번호 5~10글자 이내
+	var passwd = f.passwd.value;
+	if (passwd.length < 4) {
+		alert("비밀번호는 5글자 이상입니다.");
+		f.passwd.focus();
+		return false;
+	} else if(passwd.length >10) {
+		alert("비밀번호는 10글자 이내입니다.")
+		f.passwd.focus(0);
+		return false;
+	}	
+	return true;
+}//loginCheck() end
+
+
+
 

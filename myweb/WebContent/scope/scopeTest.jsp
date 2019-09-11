@@ -113,7 +113,6 @@
 	 String view = "scopeResult.jsp";
 	 RequestDispatcher rd = request.getRequestDispatcher(view);
 	 rd.forward(request, response);
-	 
 	 %>
 	 
 	 
