@@ -27,8 +27,8 @@
 		<tr>			
 			<td colspan="2">
 				아이디 저장
-				<span>회원가입</span>
-				<span>아이디/비밀번호 찾기</span>
+				<span><a href="agreement.jsp">회원가입</a>></span>
+				<span><a href="agreement.jsp">아이디/비밀번호 찾기</a>></span>
 			</td>
 		</tr>
 		<tr>

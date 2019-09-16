@@ -44,10 +44,11 @@
 					<li><a href="./bbs/bbsList.jsp">BOARD</a></li>
 					<li><a href="./notice/noticeList.jsp">NOTICE</a></li>
 					<li><a href="./member/loginForm.jsp">LOGIN</a></li>
+					<li><a href="./member/agreement.jsp">회원가입</a></li>
 					<li><a href="./pds/pdsList.jsp">GALLERY</a></li>
 					<li><a href="./mail/mailForm.jsp">CONTACT</a></li>
 					<li><a href="./bbs2/bbslist.do">게시판(MVC)</a></li>
-					<li><a href="./member2/loginForm.do">로그인(MVC)</a></li>
+					<li><a href="./member2/loginForm.do">로그인(MVC)</a></li>					
 				</ul>
 			</div>
 		</div>
