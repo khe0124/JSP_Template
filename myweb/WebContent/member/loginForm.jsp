@@ -1,22 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="ssi.jsp" %>
-<%@ include file="auth.jsp" %>
 <%@ include file="../header.jsp"%>
 <!-- 본문 시작 -->
 
 <div class="container-fluid">
 <h2>Login</h2>
-<%if(s_id.equals("guest") || s_passwd.equals("guest")|| s_mlevel.equals("guest")){
+<%if(s_id.equals("guest") || s_passwd.equals("guest")|| s_mlevel.equals("guest"))
+	{ //로그인을 하지 않은 경우
+	  //쿠키값을 가져오기
+	  Cookie[] cookies = request.getCookies();
+	  String c_id = "";
+	  if(cookies != null) { //쿠키가 존재하는지?
+		  for (int i = 0; i<cookies.length; i++) {
+			  Cookie cookie = cookies[i];
+			  //쿠키변수 c_id
+			  if(cookie.getName().equals("c_id")==true){
+				  c_id = cookie.getValue();
+			  }
+		  }
+	  }
+	  
 	
  %>
-<form name="loginfrm" method="post" action="loginProc.jsp"
-	onsubmit="return loginCheck(this)">
+<form name="loginfrm" 
+	  method="post" 
+	  action="loginProc.jsp"
+	  onsubmit="return loginCheck(this)">
 
 	<table class="table">
 		<tr>
 			<th>아이디</th>
-			<td><input type="text" name="id" size="10" placeholder="아이디를 입력하세요."
+			<td><input type="text" name="id" value="<%=c_id%>" size="10" placeholder="아이디를 입력하세요."
 				required class="form-control" ></td>
 		</tr>
 		<tr>
@@ -26,7 +40,9 @@
 		</tr>
 		<tr>			
 			<td colspan="2">
-				아이디 저장
+				<input type="checkbox" name="c_id" value="SAVE" 
+				<%if(!(c_id.isEmpty())){out.print("checked");} %>				
+				> 아이디 저장 
 				<span><a href="agreement.jsp">회원가입</a>></span>
 				<span><a href="agreement.jsp">아이디/비밀번호 찾기</a>></span>
 			</td>

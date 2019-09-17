@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<!-- Modal Container -->
+<%@ include file="./Modal.jsp"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -36,18 +38,38 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../bbs/bbsList.jsp">BOARD</a></li>
-        <li><a href="./notice/noticeList.jsp">NOTICE</a></li>
-        <li><a href="../member/loginForm.jsp">LOGIN</a></li>
-        <li><a href="../member/agreement.jsp">회원가입</a></li>
+        <li><a href="./notice/noticeList.jsp">NOTICE</a></li>       
         <li><a href="./pds/pdsList.jsp">GALLERY</a></li>
         <li><a href="./mail/mailForm.jsp">CONTACT</a></li>
         <li><a href="./bbs2/bbslist.do">게시판(MVC)</a></li>
-        <li><a href="./member2/loginForm.do">로그인(MVC)</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+        			<%
+						// 로그인 안되었을 경우 - 로그인, 회원가입 버튼을 보여준다.
+						if (session.getAttribute("s_id") == null) {
+					%>
+					<li><button type="button" id="loginBtn" class="btn btn-primary">로그인</button></li>
+					<li><button id="joinBtn" class="btn btn-default"
+						onclick="location.href='../member/agreement.jsp'">회원가입</button></li>
+					<%
+						// 로그인 되었을 경우 - 로그아웃, 내정보 버튼을 보여준다.
+						} else {
+					%>
+					<li><button id="logoutBtn" class="btn btn-default"
+						onclick="location.href='../member/logout.jsp'">로그아웃</button></li>
+					<li><button id="myInfoBtn" class="btn btn-default"
+						onclick="location.href='../member/myInfo.jsp?id=<%=(String)session.getAttribute("s_id")%>'">내정보</button></li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<script>
+	/* 모달창 제어: 로그인 */
+	$("#loginBtn").on("click", function() {
+		$("#login_modal").modal();
+	});
+	
+	</script>
+		
 <!-- Container 시작-->
 <div class="bg-0 text-center">
 	<div class ="row">

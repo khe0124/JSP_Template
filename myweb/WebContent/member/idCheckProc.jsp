@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ include file="ssi.jsp" %>
+<%@ include file="m_ssi.jsp" %>
 <body>
 	<div style= "text-align:center">
 		<h3>아이디 중복확인 결과</h3>

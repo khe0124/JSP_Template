@@ -1,4 +1,6 @@
 /*myscript.js*/
+
+
 function bbsCheck(f) {
 	// 게시판 유효성 검사
 	// 1) 작성자 2글자 이상 입력
@@ -185,3 +187,21 @@ function memberCheck(f) {
 	}
 	return true;
 }
+
+
+//계정삭제
+function pwCheckUpDelete(f) {
+	var passwd = f.passwd.value;
+	passwd = passwd.trim();
+	// 비밀번호가 4글자 이상 입력되었는지 검사
+	if (passwd.length < 4) {
+		alert("비밀번호는 4글자 이상입니다.");
+		f.passwd.focus();
+		return false;
+	} else{
+	confirm("정말 계정을 삭제 하시겠습니까?");
+	}
+}
+
+
+

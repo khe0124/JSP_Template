@@ -10,7 +10,7 @@
 	int bbsno = Integer.parseInt(request.getParameter("bbsno"));
 	dto = dao.read(bbsno);
 	if (dto == null) {
-		out.print("해당글없음");
+		out.print("해당 정보 없음");
 	} else {
 
 		//조회수 증가

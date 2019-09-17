@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ include file="ssi.jsp" %>
+<%@ include file="m_ssi.jsp" %>
 <%@ include file="../header.jsp"%>
 <body>
 	<div style= "text-align:center">

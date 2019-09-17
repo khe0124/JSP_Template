@@ -6,5 +6,5 @@
   session.removeAttribute("s_passwd");
   session.removeAttribute("s_mlevel");
   
-  response.sendRedirect("loginForm.jsp");
+  response.sendRedirect("../member/loginForm.jsp");
 %>
