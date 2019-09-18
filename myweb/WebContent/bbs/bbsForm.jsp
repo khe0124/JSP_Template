@@ -13,9 +13,7 @@
 		<tr>
 			<th>작성자</th>
 			<td><input type="text" name="wname" size="10" maxlength="20"
-				required class="form-control" value="<% String id = (String)session.getAttribute("s_id");				
-				   id = id.trim();if (id != null){out.println(id);}
-				%>"></td>
+				required class="form-control" ></td>
 		</tr>
 		<tr>
 			<th>제목</th>
