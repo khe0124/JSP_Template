@@ -204,4 +204,55 @@ function pwCheckUpDelete(f) {
 }
 
 
+//갤러리 이미지 확장자 체크하기
+function pdsCheck(f) {
+	
+	//이미지 판별
+	var filename = f.filename.value;
+	filename = filename.trim();
+	//내가 쓴 방법
+	if(filename.length == 0){
+		alert("파일을 첨부해주세요.")
+		return false;
+	} else {
+	/*var imgArr = filename.split('.');
+	
+	for(var i=0; i<imgArr.length; i++){
+		if(i == imgArr.length-1){
+			var img = imgArr[i].toLowerCase();
+			if(img == 'jpg' || img == 'png' || img == 'gif'){
+				alert("이미지파일이 맞습니다.");
+				return true;
+			} else {
+				alert("이미지파일이 아닙니다. 확장자를 확인해주세요.");
+				return false;
+			}
+		}
+	}*/
+	}
+	
+	//lastIndexOf와 substring 사용
+	if(filename.length == 0){
+		alert("파일을 첨부해주세요.")
+		return false;
+	}			
+	else {
+		
+		var start = filename.lastIndexOf(".")+1;
+		var end = filename.length;
+		filename = filename.substring(start, end);
+		filename = filename.toLowerCase();
+		
+		if(filename == 'jpg' || filename == 'png' || filename == 'gif'){			
+			return true;
+		} else {
+			alert("이미지파일이 아닙니다. 확장자를 확인해주세요.");
+			return false;
+		}			
+	}
+	
+	
+	return false;	
+}
+
 

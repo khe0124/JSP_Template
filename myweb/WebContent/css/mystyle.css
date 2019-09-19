@@ -8,6 +8,10 @@ body {
 	color: #444;
 }
 
+.navbarBtn {
+	margin: 10px 5px;
+	} 
+
 a {
 	color: #444;
 }

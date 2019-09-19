@@ -39,23 +39,23 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../bbs/bbsList.jsp">BOARD</a></li>
         <li><a href="./notice/noticeList.jsp">NOTICE</a></li>       
-        <li><a href="./pds/pdsList.jsp">GALLERY</a></li>
+        <li><a href="../pds/pdsList.jsp">GALLERY</a></li>
         <li><a href="./mail/mailForm.jsp">CONTACT</a></li>
         <li><a href="./bbs2/bbslist.do">게시판(MVC)</a></li>
         			<%
 						// 로그인 안되었을 경우 - 로그인, 회원가입 버튼을 보여준다.
 						if (session.getAttribute("s_id") == null) {
 					%>
-					<li><button type="button" id="loginBtn" class="btn btn-primary">로그인</button></li>
-					<li><button id="joinBtn" class="btn btn-default"
+					<li><button type="button" id="loginBtn" class="navbarBtn btn btn-primary">로그인</button></li>
+					<li><button id="joinBtn" class="navbarBtn btn btn-default"
 						onclick="location.href='../member/agreement.jsp'">회원가입</button></li>
 					<%
 						// 로그인 되었을 경우 - 로그아웃, 내정보 버튼을 보여준다.
 						} else {
 					%>
-					<li><button id="logoutBtn" class="btn btn-default"
+					<li><button id="logoutBtn" class="navbarBtn btn btn-default"
 						onclick="location.href='../member/logout.jsp'">로그아웃</button></li>
-					<li><button id="myInfoBtn" class="btn btn-default"
+					<li><button id="myInfoBtn" class="navbarBtn btn btn-default"
 						onclick="location.href='../member/myInfo.jsp?id=<%=(String)session.getAttribute("s_id")%>'">내정보</button></li>
 					<% } %>
 				</ul>
