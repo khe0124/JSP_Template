@@ -160,7 +160,7 @@
 	<div class="container-fluid bg-2 text-center">
 		<h2>Who Are We?</h2>
 		<br>
-		<div class="row">
+		<div class="row" style="width: 1200px;  margin: auto;">
 			<div class="col-sm-4">
 				<div class="imgBox">
 					<img src="img/spongebob.png" class="img-responsive character"

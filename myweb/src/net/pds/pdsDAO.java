@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import net.bbs.BbsDTO;
 import net.pds.*;
+import net.utility.Utility;
 import DBPKG.DBOpen;
 
 public class pdsDAO {
@@ -91,5 +92,115 @@ public class pdsDAO {
 		return list;
 	}
 	//3) READ
+	public pdsDTO read(int pdsno) {
+		pdsDTO dto = null;
+		try {
+			//1. DB연결: DBOpen.java와 연결한다.
+			Connection con=DBOpen.getConnetion();
+			StringBuilder sql = new StringBuilder();
+			
+			//2. Select SQL문 작성
+			sql.append(" SELECT pdsno, wname, subject, content, filename, filesize, readcnt, regdate ");
+			sql.append(" FROM tb_pds ");
+			sql.append(" WHERE pdsno=? ");
+			
+			//3. SQL문 변환
+			PreparedStatement pstmt = con.prepareStatement(sql.toString());
+			pstmt.setInt(1, pdsno); // ?순서와 ?에 들어갈 자료형 주의
+			
+			//4. 결과를 rs에 저장
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()){
+				do {
+					dto = new pdsDTO(); //한 줄씩 저장하기
+					dto.setPdsno(rs.getInt("pdsno"));
+					dto.setWname(rs.getString("wname"));
+					dto.setSubject(rs.getString("subject"));
+					dto.setContent(rs.getString("content"));
+					dto.setFilename(rs.getString("filename"));
+					dto.setFilesize(rs.getLong("filesize"));					
+					dto.setReadcnt(rs.getInt("readcnt"));
+					dto.setRegdate(rs.getString("regdate"));
+				} while (rs.next()); 
+				
+			} else{
+				dto = null;	
+			}// if end					
+			
+		}catch (Exception e){
+			System.out.println("상세보기실패:" +e);
+		}
+		return dto;
+	} 
+	
+	// 4) Read Count 
+	public int incrementCnt (int pdsno) {
+		int cnt = 0;
+		try {
+			//1. DB연결: DBOpen.java와 연결한다.
+			Connection con=DBOpen.getConnetion();
+			StringBuilder sql = new StringBuilder();
+			
+			//2. Update SQL문 작성
+			sql.append(" UPDATE tb_pds ");
+			sql.append(" SET readcnt= readcnt+1 ");
+			sql.append(" WHERE pdsno =? ");
+			
+			//3. SQL문 변환
+			PreparedStatement pstmt = con.prepareStatement(sql.toString());
+			
+			//4. dto로 데이터 받아오기				
+			pstmt.setInt(1, pdsno );
+			
+			//5. 실행횟수를 cnt에 담기
+			cnt = pstmt.executeUpdate();	
+			
+		} catch(Exception e) {
+			System.out.println("게시물 수정실패!: "+e);
+		}
+		return cnt;
+	}
+
+	// 5) Delete
+		public int delete(int pdsno, String passwd, String saveDir) {
+			int cnt = 0;
+			try {
+				//삭제하고자 하는 파일의 파일명을 가져온다.
+				String filename = "";
+				pdsDTO oldDto = read(pdsno);
+				if(oldDto!=null){
+					filename = oldDto.getFilename();
+				} 
+				
+				//1. DB연결: DBOpen.java와 연결한다.
+				Connection con=DBOpen.getConnetion();
+				StringBuilder sql = new StringBuilder();
+				
+				//2. Delete SQL문 작성
+				sql.append(" DELETE FROM tb_pds ");
+				sql.append(" WHERE passwd=? ");
+				sql.append(" AND pdsno=? ");
+				
+				//3. SQL문 변환
+				PreparedStatement pstmt = con.prepareStatement(sql.toString());				
+				pstmt.setString(1, passwd); // ?순서와 ?에 들어갈 자료형 주의	
+				pstmt.setInt(2, pdsno); // ?순서와 ?에 들어갈 자료형 주의	
+				
+				//4. 실행된 행갯수 저장
+				cnt = pstmt.executeUpdate();
+				
+				//5. 첨부된 파일도 삭제.
+				if(cnt == 1) {
+					Utility.deleteFile(saveDir, filename);
+				} 
+				
+			} catch (Exception e) {
+				System.out.println("글삭제실패!" +e);
+			}
+			return cnt;
+		}
+
+
+
 
 }
